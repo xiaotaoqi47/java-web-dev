@@ -7,3 +7,7 @@
 2.登录界面
 
 ![Image text](https://github.com/xiaotaoqi47/java-web-dev/blob/master/book-online/2.jpg)
+
+3.登录后的页面
+
+![Image text](https://github.com/xiaotaoqi47/java-web-dev/blob/master/book-online/1.jpg)
