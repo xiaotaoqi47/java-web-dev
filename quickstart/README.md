@@ -11,7 +11,7 @@ quickstart模块
 
 
 
-
-![Image text]()
+2.服务器转发数据到目标页面渲染
+![Image text](https://github.com/xiaotaoqi47/java-web-dev/blob/master/quickstart/6.jpg)
 
 
