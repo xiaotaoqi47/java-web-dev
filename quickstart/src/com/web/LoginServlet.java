@@ -15,6 +15,8 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //处理请求乱码
         req.setCharacterEncoding("UTF-8");
+
+
         //通过req请求参数获取前台表单
         String username =req.getParameter("username");
         String password =req.getParameter("password");
@@ -27,13 +29,15 @@ public class LoginServlet extends HttpServlet {
 //        req.getRequestDispatcher("/index.jsp").forward(req,resp);
 
 
-
         //通过req请求获取session会话对象
         HttpSession session = req.getSession();
+
         //把用户名存入session
         session.setAttribute("username",username);
+
         //把密码存入session
         session.setAttribute("password",password);
+
         //通过resp跳转
         resp.sendRedirect("/index.jsp");
 
