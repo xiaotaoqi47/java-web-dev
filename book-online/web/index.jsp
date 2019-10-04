@@ -56,7 +56,7 @@
       background-color: #ddd;
       display: flex;
       align-items: center;
-      padding-left: 10%;
+      padding-left: 7.5%;
       margin-bottom: 10px;
 
     }
@@ -113,7 +113,7 @@
 
     .box{
       flex:0 0 17.6%;
-      height: 280px;
+      height: 220px;
       margin: 5px 5px 5px 5px;
       background-color: #ffffff;
     }
@@ -123,19 +123,19 @@
     }
     @font-face {
       font-family: 'iconfont';  /* project id 1432509 */
-      src: url('//at.alicdn.com/t/font_1432509_pteh6oponq.eot');
-      src: url('//at.alicdn.com/t/font_1432509_pteh6oponq.eot?#iefix') format('embedded-opentype'),
-      url('//at.alicdn.com/t/font_1432509_pteh6oponq.woff2') format('woff2'),
-      url('//at.alicdn.com/t/font_1432509_pteh6oponq.woff') format('woff'),
-      url('//at.alicdn.com/t/font_1432509_pteh6oponq.ttf') format('truetype'),
-      url('//at.alicdn.com/t/font_1432509_pteh6oponq.svg#iconfont') format('svg');
+      src: url('//at.alicdn.com/t/font_1432509_bh27md8flmw.eot');
+      src: url('//at.alicdn.com/t/font_1432509_bh27md8flmw.eot?#iefix') format('embedded-opentype'),
+      url('//at.alicdn.com/t/font_1432509_bh27md8flmw.woff2') format('woff2'),
+      url('//at.alicdn.com/t/font_1432509_bh27md8flmw.woff') format('woff'),
+      url('//at.alicdn.com/t/font_1432509_bh27md8flmw.ttf') format('truetype'),
+      url('//at.alicdn.com/t/font_1432509_bh27md8flmw.svg#iconfont') format('svg');
     }
     .iconfont{
       font-family:"iconfont" !important;
-      font-size:20px;
+      font-size:35px;
       font-style:normal;
       -webkit-font-smoothing: antialiased;
-      -webkit-text-stroke-width: 0.1px;
+      -webkit-text-stroke-width: 0.3px;
       -moz-osx-font-smoothing: grayscale;
     }
   </style>
@@ -147,7 +147,7 @@
     <!-- 导航 -->
     <ul class="nav">
       <li>
-        <a href="#">首页</a>
+        <a href="${pageContext.request.contextPath}/index">首页</a>
       </li>
       <li>
         <a href="#">浏览</a>
@@ -161,17 +161,20 @@
       <li>
         <a href="#">收藏</a>
       </li>
+      <li>
+        <a href="#">更多</a>
+      </li>
     </ul>
   </div>
   <div class="user-info">
-    <h3>小淘气</h3>
+    <a href="${pageContext.request.contextPath}/login">去登录</a>
   </div>
 </header>
 <!-- 搜索区 -->
 <div class="search-wrap">
   <h2>读书时刻</h2>
   <input type="text" placeholder="输入要搜索的内容"class="input-box">
-  <i class="iconfont">搜索</i>
+  <i class="iconfont">&#xe61b;</i>
 </div>
 <%
   String username = (String) session.getAttribute("username");
@@ -193,14 +196,18 @@
   <div class="left">
     <h2>好书精选</h2>
     <hr>
-    一共${size}本书
     <div class="row">
+        <%--遍历图书数据集合，将每个图书对象放入页面对象--%>
       <%
         for (Book book : bookList) {
           pageContext.setAttribute("book",book);
       %>
+            <%--表示每行显示5本，再追加box细节样式--%>
       <div class="box">
-        <img src="images/${book.cover}" alt="">
+          <%--点击每本图书封面图，地址栏跳转为/detail/id,进入图书详情Servlet--%>
+        <a href="${pageContext.request.contextPath}/detail/${book.id}">
+              <img src="images/${book.cover}" alt="">
+        </a>
         <p>${book.name}</p>
         <p>${book.author}</p>
       </div>

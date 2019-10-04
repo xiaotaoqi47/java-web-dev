@@ -8,17 +8,17 @@
     <style type="text/css">
         /*页面主体背景图，flex布局，水平和垂直都居中，让登陆的区域位于页面中间*/
         body {
-            background-image: url("16.jpeg");
+            background-image: url("6.jpg");
             background-size: cover;
 
             background-blend-mode: luminosity;
         }
         .container {
-            width: 80%;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: absolute;
+            top: 30%;
+            left: 34%;
+            width: 450px;
+            height: 300px;
         }
         /*登陆区域样式，纵向flex布局，指定高宽边框背景色内边距等，里面元素的垂直间距*/
         .login-box {
@@ -39,10 +39,12 @@
             width: 70%;
             height: 30px;
             background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            border: 1px solid #e4e6e5;
+            border-radius: 3px;
             color: #333;
-            margin-bottom: 10px;
+            font-size: 13px;
+            padding-left: 10px;
+            margin-bottom: 5px;
         }
         .btn-box {
             display: flex;
